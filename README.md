@@ -1,12 +1,8 @@
 project: Krypto-Risers Hunter
-version: 0.1
+version: 0.2
 last_updated: 2025-12-16
-goal: Finne kryptoer som klatrer raskest i rank/pris tidlig – kjøp 10 USD i toppkandidater for potensiell 1000x
-strategy:
-  - Hent data fra CoinGecko/CoinMarketCap
-  - Sorter etter høyest % oppgang siste 7-30 dager
-  - Filtrer ut stablecoins og kjente scams
-  - Fokus på coins som starter utenfor topp 1000 og klatrer inn
+goal: Finne kryptoer som klatrer raskest i rank/pris tidlig – spotte neste 1000x tidlig med små innsatser (f.eks. 10 USD)
+data_source: CoinGecko + CoinMarketCap (24h/7d/14d fokus, siden 30d-rank-endring er begrenset)
 
 current_top_risers:
   - name: Hemi
@@ -15,41 +11,45 @@ current_top_risers:
     24h_change: +97.5%
     7d_change: +109.5%
     14d_change: +174%
-    comment: Sterk riser akkurat nå – lav cap, høy volumøkning. Verdi å følge!
+    comment: Topp gainer akkurat nå – lav cap, høy volumøkning. Sterk kandidat for videre klatring!
 
   - name: PumpBTC
     symbol: PUMP
-    market_cap_rank: Mid-range
-    24h_change: Høy (topp gainer)
-    comment: Pump-relatert, ofte volatilt men rask klatring.
+    recent_change: Høy 24h (topp gainer)
+    comment: Pump-relatert, ofte ekstremt volatil – kan gi raske multipler hvis momentum holder.
 
-  - name: MYX Finance
-    symbol: MYX
-    recent_gain: +10,773% (Q3 2025)
-    comment: Absurd oppgang tidligere i året – viser potensialet i perps-trading coins.
-
-  - name: Zora
-    symbol: ZORA
-    recent_gain: +573% (Q3)
-    comment: Creator platform, sterk narrativ.
-
-  - name: pippin
-    trending: Topp søkt nå
-    24h_change: +30.5%
-    comment: Trending hard – ofte tegn på kommende pump.
+  - name: Pippin
+    symbol: PIPPIN
+    24h_change: +32.6%
+    trending: Topp søkt på CoinGecko
+    comment: Leder dagens gainers + trending hard. Ofte tegn på kommende pump – verdt å følge!
 
   - name: Magma Finance
-    trending: Topp 3
+    trending: Topp 3 søk
     24h_change: +27.5%
-    comment: Finans-relatert, god momentum.
+    comment: Sterk momentum + høy søkeinteresse. Finans-narrativ funker bra i bull.
+
+  - name: Luxxcoin
+    symbol: LUX
+    rank: ~828
+    24h_change: +103%
+    comment: Ekstrem 24h-pump fra lav rank – klassisk low-cap riser. Høy risiko, høy reward.
+
+  - name: Wojak
+    symbol: WOJAK
+    rank: ~929
+    24h_change: +36.8%
+    comment: Meme-coin med sterk oppgang – kan fortsette hvis community pusher.
 
 tasks_next:
-  - Lag scraper.py (Python-script som henter data automatisk fra CoinGecko API)
-  - Sett opp daglig run (f.eks. via GitHub Actions)
-  - Legg til Telegram-bot for varsler når en coin klatrer +500% på 30 dager
+  - [ ] Lag scraper.py (automatisk henting fra CoinGecko API – jeg dikterer koden neste)
+  - [ ] Sett opp GitHub Actions for daglig auto-update av denne fila
+  - [ ] Legg til filter for å unngå stablecoins/scams
+  - [ ] Telegram-bot for varsler når en coin går +100% på 7 dager
 
 checklist:
-  - [x] Repo laget
+  - [x] Repo opprettet
   - [x] Første yaml-fil committet
-  - [ ] Første automatiske scan
-  - [ ] Investerings-test (10 USD i en riser?)# krypto-risers.yaml
+  - [x] Første manuelle data-run
+  - [ ] Automatisk scraper
+  - [ ] Test-investering i en riser?
